@@ -32,6 +32,7 @@ function liri(request, prop) {
 }
 
 liri(request, property);
+log("\n" + request + " " + property);
 
 function spotifyThis(prop) {
     // 'spotify-this-song'
@@ -44,12 +45,16 @@ function spotifyThis(prop) {
         if (err) console.log(err);
         // Artist(s),
         console.log("\n" + data.tracks.items[0].artists[0].name);
+        log("\n" + data.tracks.items[0].artists[0].name);
         // song's name, 
         console.log(data.tracks.items[0].name);
+        log(data.tracks.items[0].name);
         // preview link of the song,
         console.log(data.tracks.items[0].external_urls.spotify);
+        log(data.tracks.items[0].external_urls.spotify);
         // album that the song is from
         console.log(data.tracks.items[0].album.name + "\n");
+        log(data.tracks.items[0].album.name + "\n");
     });
 
 }
@@ -62,6 +67,7 @@ function myTweets() {
         if (!error) {
             for (var i = 0; i < tweets.length; i++) {
                 console.log("\ntweet " + (i + 1) + ": " + tweets[i].text + "\n::::::: " + tweets[i].created_at + "\n");
+                log("tweet " + (i + 1) + ": " + tweets[i].text + "\n::::::: " + tweets[i].created_at + "\n");
             }
         }
     });
@@ -89,12 +95,21 @@ function movieThis(prop) {
 
             // Then log the relevant information...
             console.log("\nTitle: " + JSON.parse(body).Title);
-            console.log("Relase Year: " + JSON.parse(body).Year);
+            console.log("Release Year: " + JSON.parse(body).Year);
             console.log("Rotten Tomatoes: " + JSON.parse(body).Ratings[1].Value);
             console.log("Country: " + JSON.parse(body).Year);
             console.log("Language: " + JSON.parse(body).Year);
             console.log("Plot: " + JSON.parse(body).Year);
             console.log("Actors: " + JSON.parse(body).Year + "\n");
+
+            // ...and log the relevant information to log.txt.
+            log("Title: " + JSON.parse(body).Title);
+            log("Release Year: " + JSON.parse(body).Year);
+            log("Rotten Tomatoes: " + JSON.parse(body).Ratings[1].Value);
+            log("Country: " + JSON.parse(body).Year);
+            log("Language: " + JSON.parse(body).Year);
+            log("Plot: " + JSON.parse(body).Year);
+            log("Actors: " + JSON.parse(body).Year);
         }
     });
 }
@@ -120,4 +135,11 @@ function doRandom() {
     });
 
 
+}
+
+function log(arg) {
+    fs.appendFile("./log.txt", arg + "\n", function(err) {
+        if (err) throw err;
+        console.log("Saved!");
+    })
 }
