@@ -1,1 +1,10 @@
-spotify-this-song,"I Want it That Way"
+spotify-this-song,I Want it That Way
+movie-this,The Matrix
+movie-this,event horizon
+movie-this,escape from new york
+movie-this,escape from la
+movie-this,blue velvet
+spotify-this-song,hey jude
+spotify-this-song,picture book
+spotify-this-song,yesterday
+spotify-this-song,thriller
